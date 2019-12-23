@@ -5,7 +5,6 @@ use Plugins\SimpleCRUD\Interfaces\ISimpleCRUDConfig;
 use Plugins\SimpleCRUD\Interfaces\Store\ISimpleCRUDStoreCredentials;
 
 use Plugins\SimpleCRUD\Exceptions\SimpleCRUDConfigException;
-
 use Plugins\SimpleCRUD\Store\SimpleCRUDStoreCredentials;
 
 class SimpleCRUDConfig implements ISimpleCRUDConfig
@@ -23,9 +22,8 @@ class SimpleCRUDConfig implements ISimpleCRUDConfig
     public function __construct(?string $configFilePath = null)
     {
         if (empty($configFilePath)) {
-            $errorMessage = 'Simple CRUD Config File Is Not Set';
-            $errorCode = SimpleCRUDConfigException::CODE_CONFIG_NOT_SET;
-            throw new SimpleCRUDConfigException($errorMessage, $errorCode);
+            $errorMessage = 'SimpleCRUD Config File Is Not Set';
+            throw new SimpleCRUDConfigException($errorMessage);
         }
 
         $this->_parseConfigFile($configFilePath);
@@ -77,10 +75,9 @@ class SimpleCRUDConfig implements ISimpleCRUDConfig
         $configData = $this->_getConfigDataFromFile($configFilePath);
 
         if (empty($configData)) {
-            $errorMessage = 'Simple CRUD Config File Is Missing '.
+            $errorMessage = 'CRUD Config File Is Missing '.
                             'Or Has Invalid Format';
-            $errorCode = SimpleCRUDConfigException::CODE_EMPTY_CONFIG_FILE;
-            throw new SimpleCRUDConfigException($errorMessage, $errorCode);
+            throw new SimpleCRUDConfigException($errorMessage);
         }
 
         $this->_validateConfigData($configData);
@@ -113,12 +110,11 @@ class SimpleCRUDConfig implements ISimpleCRUDConfig
     ):  void
     {
         if (
-            !array_key_exists($param, $configData) ||
+            !array_key_exists($param, $configData) &&
             empty($configData[$param])
         ) {
-            $errorMessage = 'Simple CRUD Config Value "'.$param.'" Is Not Set';
-            $errorCode    = SimpleCRUDConfigException::CODE_EMPTY_CONFIG_PARAM;
-            throw new SimpleCRUDConfigException($errorMessage, $errorCode);
+            $errorMessage = 'CRUD Config Value "'.$param.'" Is Not Set';
+            throw new SimpleCRUDConfigException($errorMessage);
         }
     }
 

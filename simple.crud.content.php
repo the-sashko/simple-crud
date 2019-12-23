@@ -3,7 +3,7 @@ namespace Plugins\SimpleCRUD;
 
 use Plugins\SimpleCRUD\Interfaces\ISimpleCRUDContent;
 
-class SimpleCRUDContent implements ICRUDContent
+class SimpleCRUDContent implements ISimpleCRUDContent
 {
     const TYPE_HTML = 'html';
 

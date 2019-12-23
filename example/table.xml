@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<table name="example"
+       itemsOnPage="50"
+       caption="test"
+       primaryField="id">
+    <fields>
+        <field name="id"
+               caption="ID"
+               type="number"
+               hideOnForm="true" />
+        <field name="name"
+               caption="Name"
+               required="true"
+               unique="true"
+               type="text" />
+        <field name="text"
+               caption="Text"
+               type="textarea"
+               hideOnList="true" />
+        <field name="is_active"
+               caption="Is Active"
+               type="checkbox"
+               default="true" />
+        <field name="status"
+               caption="Status"
+               required="true"
+               type="select">
+               <option name="Pending"
+                       value="pending"
+                       selected="true" />
+               <option name="Done"
+                       value="done" />
+               <option name="Error"
+                       value="error" />
+        </field>
+        <field name="count"
+               caption="Count"
+               type="number" />
+        <field name="id_type"
+               caption="Type"
+               type="select">
+            <foreign name="example_types"
+                     alias="example_types">
+                     <keyField>id</keyField>
+                     <captionField>title</captionField>
+                     <search condition="or">
+                             <searchGroup condition="and">
+                                          <searchValue field="id"
+                                                       condition="&gt;"
+                                                       value="34" />
+                             </searchGroup>
+                             <searchGroup condition="and">
+                                          <searchValue field="title"
+                                                       condition="!="
+                                                       value="Disabled" />
+                            </searchGroup>
+                    </search>
+            </foreign>
+        </field>
+        <field name="_tags"
+               caption="Tags"
+               type="many2many">
+               <proxy name="example2tags"
+                      alias="example2tags">
+                      <keyField>id_example</keyField>
+                      <foreignField>id_tag</foreignField>
+               </proxy>
+               <foreign name="tags"
+                        alias="example_tags">
+                        <keyField>id</keyField>
+                        <captionField>title</captionField>
+               </foreign>
+        </field>
+        <field name="cdate"
+               caption="Created At"
+               type="datetime"
+               hideOnList="true"
+               hideOnForm="true" />
+        <field name="mdate"
+               caption="Updated At"
+               type="datetime"
+               hideOnForm="true" />
+    </fields>
+    <search condition="and">
+            <searchGroup condition="or">
+                         <searchGroup condition="and">
+                                      <searchValue field="id"
+                                                   condition="&gt;"
+                                                   value="0" />
+                                      <searchValue field="id"
+                                                   condition="&lt;"
+                                                   value="100" />
+                         </searchGroup>
+                         <searchGroup condition="and">
+                                      <searchValue field="name"
+                                                   condition="="
+                                                   value="Test ABC" />
+                         </searchGroup>
+            </searchGroup>
+            <searchValue field="name"
+                         condition="!="
+                         value="hide_me" />
+    </search>
+    <actions>
+        <action type="create"
+                title="New Item">
+                <handler plugin="Example"
+                         method="handleCreate"/>
+        </action>
+        <action type="update"
+                title="Edit Item">
+                <handler plugin="Example"
+                         method="handleUpdate" />
+        </action>
+        <action type="info"
+                title="Info" />
+        <action type="remove"
+                title="Delete" />
+    </actions>
+</table>

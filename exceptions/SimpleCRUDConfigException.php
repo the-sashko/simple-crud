@@ -1,12 +1,9 @@
 <?php
-
 namespace Plugins\SimpleCRUD\Exceptions;
 
-class SimpleCRUDConfigException extends \Exception
+use Plugins\SimpleCRUD\Exceptions\SimpleCRUDException;
+
+class SimpleCRUDConfigException extends SimpleCRUDException
 {
-    const CODE_CONFIG_NOT_SET = 1;
 
-    const CODE_EMPTY_CONFIG_FILE = 2;
-
-    const CODE_EMPTY_CONFIG_PARAM = 2;
 }

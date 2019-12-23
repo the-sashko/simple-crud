@@ -1,6 +1,6 @@
 <?php
 
-$pluginCrudAutoload = function(string $dir, Closure $autoload): void
+$simpleCRUDAutoload = function(string $dir, Closure $autoload): void
 {
     foreach (glob($dir.'/*') as $fileItem) {
         if ($fileItem == __FILE__) {
@@ -19,18 +19,20 @@ $pluginCrudAutoload = function(string $dir, Closure $autoload): void
     }
 };
 
-$pluginCrudAutoload(__DIR__.'/interfaces', $pluginCrudAutoload);
+$simpleCRUDAutoload(__DIR__.'/interfaces', $simpleCRUDAutoload);
 
-$pluginCrudAutoload(__DIR__.'/exceptions', $pluginCrudAutoload);
+require_once __DIR__.'/exceptions/SimpleCRUDException.php';
+
+$simpleCRUDAutoload(__DIR__.'/exceptions', $simpleCRUDAutoload);
 
 require_once __DIR__.'/fields/AbstractField.php';
 require_once __DIR__.'/fields/TextField.php';
 require_once __DIR__.'/fields/SelectField.php';
 
-$pluginCrudAutoload(__DIR__.'/fields', $pluginCrudAutoload);
+$simpleCRUDAutoload(__DIR__.'/fields', $simpleCRUDAutoload);
 
-require_once __DIR__.'/store/crud.store.credentials.php';
-require_once __DIR__.'/store/crud.store.php';
+require_once __DIR__.'/store/simple.crud.store.credentials.php';
+require_once __DIR__.'/store/simple.crud.store.php';
 
 require_once __DIR__.'/search/SimpleCRUDSearchField.php';
 require_once __DIR__.'/search/SimpleCRUDSearch.php';
@@ -47,11 +49,11 @@ require_once __DIR__.'/tables/ProxyTable.php';
 require_once __DIR__.'/tables/ForeignTable.php';
 require_once __DIR__.'/tables/BaseTable.php';
 
-require_once __DIR__.'/xml/simple.crud.xml.class.php';
-require_once __DIR__.'/xml/parser.xml.class.php';
+require_once __DIR__.'/xml/simple.crud.xml.parser.php';
+require_once __DIR__.'/xml/simple.crud.xml.object.php';
 
 require_once __DIR__.'/simple.crud.config.php';
 require_once __DIR__.'/simple.crud.content.php';
 require_once __DIR__.'/simple.crud.plugin.php';
 
-unset($autoload);
+unset($simpleCRUDAutoload);

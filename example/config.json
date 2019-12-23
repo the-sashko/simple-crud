@@ -1,0 +1,15 @@
+{
+    "return_result": true,
+    "salt": "<SALT_STRING>",
+    "store": {
+        "type"  : "<STORE_TYPE>",
+        "cache" : "<CACHE_TYPE>",
+        "credentials" : {
+            "host"     : "<DB_HOST>",
+            "port"     : <DB_PORT>,
+            "db"       : "<DB_NAME>",
+            "user"     : "<DB_USER>",
+            "password" : "<DB_PASSWORD>"
+        }
+    }
+}

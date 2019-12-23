@@ -1,15 +1,15 @@
 <?php
 namespace Plugins\SimpleCRUD;
 
-use Plugins\SimpleCRUD\Interfaces\ISimpleCRUDContent;
-use Plugins\SimpleCRUD\Interfaces\ISimpleCRUDPlugin;
+use Plugins\SimpleCRUD\Interfaces\ISimpleCrudContent;
+use Plugins\SimpleCRUD\Interfaces\ISimpleCrudPugin;
 
 use Plugins\SimpleCRUD\Tables\BaseTable;
 use Plugins\SimpleCRUD\XML\SimpleCRUDXMLObject;
 
-class SimpleCRUDPlugin implements ISimpleCRUDPlugin
+class CRUDPlugin implements ISimpleCRUDPugin
 {
-    const DEFAULT_ERROR_MESSAGE = 'Unknown Simple CRUD Error';
+    const DEFAULT_ERROR_MESSAGE = 'Unknown SimpleCRUD Error';
     const DEFAULT_RAND_MIN_VALUE = 0;
     const DEFAULT_RAND_MAX_VALUE = 200000;
 
@@ -74,7 +74,7 @@ class SimpleCRUDPlugin implements ISimpleCRUDPlugin
                     $this->_table->executeActionRemove($content);
                     break;
                 default:
-                    $errorMessage = 'Invalid Simple CRUD Action: "'.
+                    $errorMessage = 'Invalid SimpleCRUD Action: "'.
                                     $this->_action.'"';
                     $this->_error($errorMessage);
                     break;
@@ -90,7 +90,7 @@ class SimpleCRUDPlugin implements ISimpleCRUDPlugin
         return $this->_getContent($content);
     }
 
-    private function _getContent(ICrudContent $content): string
+    private function _getContent(ISimpleCRUDContent $content): string
     {
         if ($content->isJSON()) {
             return (string) $content->getJSON();
@@ -99,7 +99,7 @@ class SimpleCRUDPlugin implements ISimpleCRUDPlugin
         return (string) $content->getHTML();
     }
 
-    private function _renderContent(ICrudContent $content): void
+    private function _renderContent(ISimpleCRUDContent $content): void
     {
         if ($content->isJSON()) {
             $this->_renderJSON($content->getJSON());
@@ -113,7 +113,7 @@ class SimpleCRUDPlugin implements ISimpleCRUDPlugin
     private function _setTable(?string $xmlFilePath = null):  void
     {
         if (empty($xmlFilePath)) {
-            $this->_error('Simple CURL XML File Is Not Set!');
+            $this->_error('SimpleCRUD XML File Is Not Set!');
         }
 
         $crudXML      = new SimpleCRUDXMLObject($xmlFilePath);
@@ -127,7 +127,7 @@ class SimpleCRUDPlugin implements ISimpleCRUDPlugin
     private function _setConfig(?string $configFilePath = null):  void
     {
         if (empty($configFilePath)) {
-            $this->_error('Simple CURL Config File Is Not Set!');
+            $this->_error('SimpleCRUD Config File Is Not Set!');
         }
 
         $this->_config = new SimpleCRUDConfig($configFilePath);
@@ -225,7 +225,7 @@ class SimpleCRUDPlugin implements ISimpleCRUDPlugin
     private function _generateCSRFToken(): string
     {
         if (empty($this->_config->getSalt())) {
-            $this->_error('Simple CRUD Config Salt Is Not Set!');
+            $this->_error('SimpleCRUD Config Salt Is Not Set!');
         }
 
         $randomString = md5(rand(
