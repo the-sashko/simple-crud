@@ -1,8 +1,8 @@
 <?php
 namespace Plugins\SimpleCRUD;
 
-use Plugins\SimpleCRUD\Interfaces\ISimpleCrudContent;
-use Plugins\SimpleCRUD\Interfaces\ISimpleCrudPugin;
+use Plugins\SimpleCRUD\Interfaces\ISimpleCRUDContent;
+use Plugins\SimpleCRUD\Interfaces\ISimpleCRUDPugin;
 
 use Plugins\SimpleCRUD\Tables\BaseTable;
 use Plugins\SimpleCRUD\XML\SimpleCRUDXMLObject;
@@ -58,7 +58,7 @@ class SimpleCRUDPlugin implements ISimpleCRUDPugin
     public function execute(): string
     {
         try {
-            $content = new CrudContent();
+            $content = new SimpleCRUDContent();
 
             switch ($this->_action) {
                 case static::ACTION_LIST:

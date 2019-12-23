@@ -85,7 +85,7 @@ class SimpleCRUDSearch implements ISimpleCRUDSearch
                 continue;
             }
 
-            $this->_fields[] = new CrudSearchField($searchFieldData);
+            $this->_fields[] = new SimpleCRUDSearchField($searchFieldData);
         }
 
         if (empty($this->_fields)) {
@@ -112,7 +112,7 @@ class SimpleCRUDSearch implements ISimpleCRUDSearch
                 continue;
             }
 
-            $this->_nodes[] = new CrudSearch($searchNodeData);
+            $this->_nodes[] = new SimpleCRUDSearch($searchNodeData);
         }
 
         if (empty($this->_nodes)) {

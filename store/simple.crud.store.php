@@ -9,7 +9,7 @@ use Plugins\SimpleCRUD\Interfaces\Store\ISimpleCRUDStoreCredentials;
 
 use Plugins\SimpleCRUD\Exceptions\SimpleCRUDStoreException;
 
-class CrudStore implements ISimpleCRUDStore
+class SimpleCRUDStore implements ISimpleCRUDStore
 {
     private $_provider = null;
     private $_cache    = null;

@@ -31,9 +31,9 @@ use Plugins\SimpleCRUD\Fields\FileField;
 use Plugins\SimpleCRUD\Fields\ImageField;
 use Plugins\SimpleCRUD\Fields\CheckboxField;
 
-use Plugins\SimpleCRUD\Search\CrudSearch;
+use Plugins\SimpleCRUD\Search\SimpleCRUDSearch;
 
-use Plugins\SimpleCRUD\Store\CrudStore;
+use Plugins\SimpleCRUD\Store\SimpleCRUDStore;
 
 class BaseTable extends CoreTable implements ISimpleCRUDEntity
 {
@@ -58,9 +58,9 @@ class BaseTable extends CoreTable implements ISimpleCRUDEntity
     private $_content = null;
 
     public function __construct(
-        ?ICrudXMLObject $crudXML    = null,
-        ?ICrudConfig    $crudConfig = null,
-        array           $formData   = []
+        ?ISimpleCRUDXMLObject $crudXML    = null,
+        ?ISimpleCRUDConfig    $crudConfig = null,
+        array                 $formData   = []
     )
     {
         $this->_setValuesFromCrudXML($crudXML);
@@ -129,7 +129,7 @@ class BaseTable extends CoreTable implements ISimpleCRUDEntity
     }
 
     private function _setValuesFromCrudXML(
-        ?ICrudXMLObject $crudXML = null
+        ?ISimpleCRUDXMLObject $crudXML = null
     ):  void
     {
         if (empty($crudXML)) {

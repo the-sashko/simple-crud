@@ -1,7 +1,7 @@
 <?php
 namespace Plugins\SimpleCRUD\Interfaces;
 
-use Plugins\SimpleCRUD\Interfaces\Store\ICrudStoreCredentials;
+use Plugins\SimpleCRUD\Interfaces\Store\ISimpleCRUDStoreCredentials;
 
 interface ISimpleCRUDConfig
 {

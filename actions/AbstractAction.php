@@ -15,8 +15,8 @@ abstract class AbstractAction
     abstract public function execute();
 
     public function __construct(
-        ?array        $actionData = null,
-        ?ICrudEntity &$entity     = null
+        ?array              $actionData = null,
+        ?ISimpleCRUDEntity &$entity     = null
     )
     {
         $this->entity = $entity;
