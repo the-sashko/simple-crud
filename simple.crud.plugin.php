@@ -7,7 +7,7 @@ use Plugins\SimpleCRUD\Interfaces\ISimpleCrudPugin;
 use Plugins\SimpleCRUD\Tables\BaseTable;
 use Plugins\SimpleCRUD\XML\SimpleCRUDXMLObject;
 
-class CRUDPlugin implements ISimpleCRUDPugin
+class SimpleCRUDPlugin implements ISimpleCRUDPugin
 {
     const DEFAULT_ERROR_MESSAGE = 'Unknown SimpleCRUD Error';
     const DEFAULT_RAND_MIN_VALUE = 0;
