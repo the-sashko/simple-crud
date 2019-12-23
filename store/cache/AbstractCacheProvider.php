@@ -1,7 +1,9 @@
 <?php
 namespace Plugins\SimpleCRUD\DataObject\CacheProviders;
 
-abstract class AbstrastCacheProvider
+use Plugins\SimpleCRUD\Interfaces\ISimpleCRUDStoreCache;
+
+abstract class AbstrastCacheProvider implements ISimpleCRUDStoreCache;
 {
     const DEFAULT_LIFE_TIME = 1800;
 

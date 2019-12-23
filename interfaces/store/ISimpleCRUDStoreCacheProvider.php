@@ -12,4 +12,8 @@ interface ISimpleCRUDStoreCacheProvider
     public function remove(?string $search = null): bool;
 
     public function removeAll(?string $search = null): bool;
+
+    public function getCredentials(): ISimpleCRUDStoreCredentials;
+
+    public function getDriver(): ?ISimpleCRUDStoreDriver;
 }

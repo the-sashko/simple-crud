@@ -26,4 +26,10 @@ interface ISimpleCRUDContent
     public function setTypeHTML();
 
     public function setTypeJSON();
+
+    public function renderTemplate(
+        ?string $templateName     = null,
+        ?array  $templateValues   = null,
+        bool    $isRenderFullPage = false
+    ):  ?string;
 }

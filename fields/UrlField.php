@@ -10,10 +10,14 @@ class UrlField extends TextField
     public function getHTML(): string
     {
         // To-Do
+
+        return '';
     }
 
     public function getHTMLForm(): string
     {
         // To-Do
+
+        return '';
     }
 }

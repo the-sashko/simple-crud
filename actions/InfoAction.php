@@ -11,19 +11,15 @@ class InfoAction extends AbstractAction
         throw new SimpleCRUDInfoActionException($errorMessage);
     }
 
-    public function getHandlers(): array
+    private function _getHandlers(): ?array
     {
         $errorMessage = 'SimpleCRUD Method Is Not Implemented';
         throw new SimpleCRUDInfoActionException($errorMessage);
-
-        return [];
     }
 
     public function executeHandlers(): bool
     {
         $errorMessage = 'SimpleCRUD Method Is Not Implemented';
         throw new SimpleCRUDInfoActionException($errorMessage);
-
-        return false;
     }
 }

@@ -10,10 +10,14 @@ class EmailField extends TextField
     public function getHTML(): string
     {
         // To-Do
+
+        return '';
     }
 
     public function getHTMLForm(): string
     {
         // To-Do
+
+        return '';
     }
 }

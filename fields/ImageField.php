@@ -8,10 +8,14 @@ class ImageField extends FileField
     public function getHTML(): string
     {
         // To-Do
+
+        return '';
     }
 
     public function getHTMLForm(): string
     {
         // To-Do
+
+        return '';
     }
 }

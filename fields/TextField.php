@@ -10,15 +10,21 @@ class TextField extends AbstractField
     public function getHTML(): string
     {
         // To-Do
+
+        return '';
     }
 
     public function getHTMLForm(): string
     {
         // To-Do
+
+        return '';
     }
 
     private function _isInputHasCorrectFormat(): bool
     {
         // To-Do
+
+        return false;
     }
 }

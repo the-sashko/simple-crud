@@ -12,10 +12,14 @@ class Many2ManyField extends SelectField
     public function getHTML(): string
     {
         // To-Do
+
+        return '';
     }
 
     public function getHTMLForm(): string
     {
         // To-Do
+
+        return '';
     }
 }

@@ -2,6 +2,7 @@
 namespace Plugins\SimpleCRUD\Actions;
 
 use Plugins\SimpleCRUD\Interfaces\ISimpleCRUDEntity;
+use Plugins\SimpleCRUD\Interfaces\Store\Action\ISimpleCRUDActionHandler;
 
 use Plugins\SimpleCRUD\Exceptions\SimpleCRUDActionException;
 
@@ -55,7 +56,9 @@ abstract class AbstractAction
         return true;
     }
 
-    private function _executeHandler(?IActionHandler $handler = null): bool
+    private function _executeHandler(
+        ?ISimpleCRUDActionHandler $handler = null
+    ): bool
     {
         if (empty($handler)) {
             return false;

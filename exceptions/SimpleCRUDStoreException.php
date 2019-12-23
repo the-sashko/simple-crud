@@ -3,7 +3,4 @@ namespace Plugins\SimpleCRUD\Exceptions;
 
 use Plugins\SimpleCRUD\Exceptions\SimpleCRUDException;
 
-class SimpleCRUDStoreException extends SimpleCRUDException
-{
-
-}
+class SimpleCRUDStoreException extends SimpleCRUDException {}

@@ -13,11 +13,12 @@ class ListAction extends AbstractAction
         $rows = $store->read($this->entity);
 
         if (empty($rowsData)) {
-            //
+            // To-Do
         }
 
         foreach ($rows as $rowIdx => $row) {
-            $this->_setRow($rows[$rowIdx]);
+            $this->_setRow($row);
+            $rows[$rowIdx] = $row;
         }
 
         $templateParams = array(
@@ -31,20 +32,16 @@ class ListAction extends AbstractAction
         die();
     }
 
-    public function getHandlers(): array
+    private function _getHandlers(): ?array
     {
         $errorMessage = 'SimpleCRUD Method Is Not Implemented';
-        throw new SimpleCRUDListActionException();
-
-        return [];
+        throw new SimpleCRUDListActionException($errorMessage);
     }
 
     public function executeHandlers(): bool
     {
         $errorMessage = 'SimpleCRUD Method Is Not Implemented';
         throw new SimpleCRUDListActionException($errorMessage);
-
-        return false;
     }
 
     private function _setRow(?array &$row = null): void
@@ -54,7 +51,7 @@ class ListAction extends AbstractAction
                 continue;
             }
 
-            $rowValue = $row[$fieldName];
+            $rowValue = isset($row[$fieldName]) ? $row[$fieldName] : null;
             $row[$fieldName] = clone $field;
             $row[$fieldName]->setValue($rowValue);
         }

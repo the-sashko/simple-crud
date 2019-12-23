@@ -1,7 +1,4 @@
 <?php
 namespace Plugins\SimpleCRUD\Exceptions;
 
-class SimpleCRUDException extends \Exception
-{
-
-}
+class SimpleCRUDException extends \Exception {}
